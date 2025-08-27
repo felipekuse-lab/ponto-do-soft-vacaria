@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -19,7 +20,7 @@ const Contact = () => {
             Solicite seu Orçamento
           </h2>
           <p className="text-lg text-muted-foreground">
-            Entre em contato conosco e receba um orçamento personalizado para seu grupo
+            Entre em contato conosco e receba um orçamento personalizado para seu grupo ou empresa
           </p>
         </div>
 
@@ -44,7 +45,7 @@ const Contact = () => {
                   <Input id="phone" name="phone" required className="mt-1" />
                 </div>
                 <div>
-                  <Label htmlFor="group">Nome do grupo/CTG</Label>
+                  <Label htmlFor="group">Nome do grupo/CTG/empresa</Label>
                   <Input id="group" name="group" required className="mt-1" />
                 </div>
                 <div>
@@ -72,7 +73,10 @@ const Contact = () => {
           <div className="space-y-6">
             <Card className="bg-primary text-primary-foreground border-0 shadow-soft">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">📱 WhatsApp Direto</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <MessageCircle className="w-6 h-6" />
+                  <h3 className="text-xl font-semibold">WhatsApp Direto</h3>
+                </div>
                 <p className="mb-4">
                   Prefere conversar pelo WhatsApp? Clique no botão abaixo e fale conosco agora mesmo!
                 </p>
@@ -84,18 +88,27 @@ const Contact = () => {
 
             <Card className="bg-card border-border shadow-soft">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-card-foreground">📍 Informações de Contato</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <MapPin className="w-6 h-6 text-primary" />
+                  <h3 className="text-xl font-semibold text-card-foreground">Informações de Contato</h3>
+                </div>
                 <div className="space-y-3 text-muted-foreground">
                   <div className="flex items-center">
-                    <span className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 text-primary">📍</span>
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <MapPin className="w-4 h-4 text-primary" />
+                    </div>
                     <span>Vacaria, Rio Grande do Sul</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 text-primary">📞</span>
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <Phone className="w-4 h-4 text-primary" />
+                    </div>
                     <span>(54) 9999-9999</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 text-primary">✉️</span>
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <Mail className="w-4 h-4 text-primary" />
+                    </div>
                     <span>contato@pontodosoft.com.br</span>
                   </div>
                 </div>
@@ -104,7 +117,10 @@ const Contact = () => {
 
             <Card className="bg-secondary text-secondary-foreground border-0 shadow-soft">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">⏰ Horário de Atendimento</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <Clock className="w-6 h-6" />
+                  <h3 className="text-xl font-semibold">Horário de Atendimento</h3>
+                </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span>Segunda a Sexta:</span>

@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { MessageCircle, Star } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
@@ -13,9 +14,9 @@ const Testimonials = () => {
       role: "Coordenador de Acampamento"
     },
     {
-      name: "Grupo Laçadores Unidos",
-      text: "O atendimento é excelente e o resultado superou nossas expectativas. Recomendo para todos os grupos!",
-      role: "Grupo de Laçadores"
+      name: "Empresa Rural Gaúcha",
+      text: "Excelente parceria! Fizemos blusas personalizadas para toda nossa equipe e o resultado foi excepcional.",
+      role: "Empresa"
     }
   ];
 
@@ -27,7 +28,7 @@ const Testimonials = () => {
             O que nossos clientes dizem
           </h2>
           <p className="text-lg text-muted-foreground">
-            A satisfação dos nossos clientes é nossa maior recompensa
+            A satisfação dos nossos clientes - grupos, CTGs e empresas - é nossa maior recompensa
           </p>
         </div>
 
@@ -37,7 +38,7 @@ const Testimonials = () => {
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-xl">💬</span>
+                    <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-card-foreground">{testimonial.name}</h4>
@@ -49,7 +50,7 @@ const Testimonials = () => {
                 </p>
                 <div className="flex mt-4">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                   ))}
                 </div>
               </CardContent>

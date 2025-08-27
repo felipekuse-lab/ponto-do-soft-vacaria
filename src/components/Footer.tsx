@@ -1,3 +1,5 @@
+import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
@@ -38,10 +40,22 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-sm opacity-90">
-              <li>📍 Vacaria, RS</li>
-              <li>📞 (54) 9999-9999</li>
-              <li>✉️ contato@pontodosoft.com.br</li>
-              <li>📱 WhatsApp Direto</li>
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                Vacaria, RS
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                (54) 9999-9999
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                contato@pontodosoft.com.br
+              </li>
+              <li className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp Direto
+              </li>
             </ul>
           </div>
         </div>

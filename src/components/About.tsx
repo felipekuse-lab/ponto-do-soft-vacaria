@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Scissors, Target, Award } from "lucide-react";
 
 const About = () => {
   return (
@@ -11,7 +12,7 @@ const About = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">
             No Ponto do Soft, cada peça é confeccionada com o cuidado e a dedicação que a tradição gaúcha merece. 
             Há anos, especializamos-nos em criar blusas de soft personalizadas que combinam conforto, durabilidade 
-            e identidade para CTGs, grupos de laçadores e acampamentos.
+            e identidade para CTGs, grupos de laçadores, acampamentos e empresas.
           </p>
         </div>
         
@@ -19,7 +20,7 @@ const About = () => {
           <Card className="bg-card border-border shadow-soft hover:shadow-warm transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">✂️</span>
+                <Scissors className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-card-foreground">Confecção Artesanal</h3>
               <p className="text-muted-foreground">
@@ -31,11 +32,11 @@ const About = () => {
           <Card className="bg-card border-border shadow-soft hover:shadow-warm transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
+                <Target className="w-8 h-8 text-secondary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-card-foreground">Foco em Grupos</h3>
+              <h3 className="text-xl font-semibold mb-3 text-card-foreground">Foco em Grupos e Empresas</h3>
               <p className="text-muted-foreground">
-                Especializados em atender CTGs, grupos de laçadores e acampamentos com soluções personalizadas.
+                Especializados em atender CTGs, grupos de laçadores, acampamentos e empresas com soluções personalizadas.
               </p>
             </CardContent>
           </Card>
@@ -43,7 +44,7 @@ const About = () => {
           <Card className="bg-card border-border shadow-soft hover:shadow-warm transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-leather/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏆</span>
+                <Award className="w-8 h-8 text-leather-dark" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-card-foreground">Tradição Gaúcha</h3>
               <p className="text-muted-foreground">

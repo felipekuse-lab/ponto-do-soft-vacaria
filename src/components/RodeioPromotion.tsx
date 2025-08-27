@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Clock, Gift, Users, Star } from "lucide-react";
 
 const RodeioPromotion = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -39,9 +40,13 @@ const RodeioPromotion = () => {
       <div className="absolute inset-0 bg-black/10"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">
-            🎪 Promoção Rodeio de Vacaria 2024
-          </h2>
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Star className="w-8 h-8" />
+            <h2 className="text-3xl md:text-4xl font-bold font-heading">
+              Promoção Rodeio de Vacaria 2024
+            </h2>
+            <Star className="w-8 h-8" />
+          </div>
           <p className="text-xl mb-8 opacity-90">
             Garante já sua blusa personalizada para o maior evento tradicionalista da região!
           </p>
@@ -55,6 +60,7 @@ const RodeioPromotion = () => {
               { label: "Seg", value: timeLeft.seconds }
             ].map((item, index) => (
               <div key={index} className="bg-primary-foreground/20 backdrop-blur-sm rounded-lg p-4">
+                <Clock className="w-6 h-6 mx-auto mb-2" />
                 <div className="text-2xl font-bold">{item.value.toString().padStart(2, '0')}</div>
                 <div className="text-sm opacity-80">{item.label}</div>
               </div>
@@ -64,6 +70,7 @@ const RodeioPromotion = () => {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20">
               <CardContent className="p-6 text-center">
+                <Users className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="text-xl font-semibold mb-3">Desconto Progressivo</h3>
                 <ul className="space-y-2 text-sm">
                   <li>10-19 peças: <strong>10% OFF</strong></li>
@@ -75,6 +82,7 @@ const RodeioPromotion = () => {
 
             <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20">
               <CardContent className="p-6 text-center">
+                <Gift className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="text-xl font-semibold mb-3">Bordado Grátis</h3>
                 <p className="text-sm">
                   Para pedidos de <strong>15 peças ou mais</strong>, 
@@ -93,18 +101,19 @@ const RodeioPromotion = () => {
             </Button>
           </div>
 
-          <p className="text-sm mt-6 opacity-75">
-            ⏰ Promoção válida até o dia do evento. Não perca!
+          <p className="text-sm mt-6 opacity-75 flex items-center justify-center gap-2">
+            <Clock className="w-4 h-4" />
+            Promoção válida até o dia do evento. Não perca!
           </p>
         </div>
       </div>
 
-      {/* Decorative elements */}
+      {/* Decorative elements - removed emojis */}
       <div className="absolute top-4 left-4 opacity-10">
-        <div className="text-6xl">🤠</div>
+        <div className="w-12 h-12 border-2 border-primary-foreground rounded-full"></div>
       </div>
       <div className="absolute bottom-4 right-4 opacity-10">
-        <div className="text-6xl">🐎</div>
+        <div className="w-12 h-12 border-2 border-primary-foreground rounded-lg rotate-45"></div>
       </div>
     </section>
   );

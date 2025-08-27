@@ -1,22 +1,26 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Shirt, Crown, Users } from "lucide-react";
 
 const Products = () => {
   const products = [
     {
       title: "Blusa Básica Personalizada",
-      description: "Blusa de soft com bordado do seu CTG ou grupo",
-      features: ["Tecido de alta qualidade", "Bordado personalizado", "Várias cores disponíveis"]
+      description: "Blusa de soft com bordado do seu CTG, grupo ou empresa",
+      features: ["Tecido de alta qualidade", "Bordado personalizado", "Várias cores disponíveis"],
+      icon: Shirt
     },
     {
       title: "Blusa Premium com Brasão",
       description: "Modelo premium com brasão bordado e detalhes especiais",
-      features: ["Tecido premium", "Brasão bordado", "Acabamento especial", "Nome personalizado"]
+      features: ["Tecido premium", "Brasão bordado", "Acabamento especial", "Nome personalizado"],
+      icon: Crown
     },
     {
-      title: "Kit Grupo Completo",
-      description: "Pacote especial para grupos com desconto progressivo",
-      features: ["A partir de 10 peças", "Desconto progressivo", "Bordado grátis", "Entrega expressa"]
+      title: "Kit Grupo/Empresa Completo",
+      description: "Pacote especial para grupos e empresas com desconto progressivo",
+      features: ["A partir de 10 peças", "Desconto progressivo", "Bordado grátis", "Entrega expressa"],
+      icon: Users
     }
   ];
 
@@ -29,17 +33,19 @@ const Products = () => {
           </h2>
           <p className="text-lg text-muted-foreground">
             Confira nossos modelos de blusas de soft personalizadas, especialmente desenvolvidas 
-            para grupos tradicionalistas e acampamentos.
+            para grupos tradicionalistas, acampamentos e empresas.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {products.map((product, index) => (
-            <Card key={index} className="bg-card border-border shadow-soft hover:shadow-warm transition-all duration-300 group">
-              <CardContent className="p-6">
-                <div className="aspect-square bg-accent/50 rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-4xl">👕</span>
-                </div>
+          {products.map((product, index) => {
+            const IconComponent = product.icon;
+            return (
+              <Card key={index} className="bg-card border-border shadow-soft hover:shadow-warm transition-all duration-300 group">
+                <CardContent className="p-6">
+                  <div className="aspect-square bg-accent/50 rounded-lg mb-4 flex items-center justify-center">
+                    <IconComponent className="w-12 h-12 text-primary" />
+                  </div>
                 <h3 className="text-xl font-semibold mb-3 text-card-foreground group-hover:text-primary transition-colors">
                   {product.title}
                 </h3>
@@ -59,7 +65,8 @@ const Products = () => {
                 </Button>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         <div className="bg-accent/20 rounded-2xl p-8 text-center">
@@ -67,8 +74,8 @@ const Products = () => {
             Personalização Completa
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Oferecemos bordado com brasão do CTG, nome do grupo, frases especiais e logos personalizados. 
-            Cada peça é única e representa a identidade do seu grupo.
+            Oferecemos bordado com brasão do CTG, nome do grupo/empresa, frases especiais e logos personalizados. 
+            Cada peça é única e representa a identidade do seu grupo ou empresa.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
