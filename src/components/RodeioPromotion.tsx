@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Clock, Gift, Users, Star } from "lucide-react";
-
 const RodeioPromotion = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -10,7 +9,6 @@ const RodeioPromotion = () => {
     minutes: 0,
     seconds: 0
   });
-
   useEffect(() => {
     // Set target date for Rodeio de Vacaria (example: next February)
     const targetDate = new Date();
@@ -19,24 +17,23 @@ const RodeioPromotion = () => {
     if (targetDate < new Date()) {
       targetDate.setFullYear(targetDate.getFullYear() + 1);
     }
-
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      setTimeLeft({ days, hours, minutes, seconds });
+      const hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+      const minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+      const seconds = Math.floor(distance % (1000 * 60) / 1000);
+      setTimeLeft({
+        days,
+        hours,
+        minutes,
+        seconds
+      });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
-
-  return (
-    <section id="promocao" className="py-16 lg:py-24 bg-gradient-primary relative overflow-hidden">
+  return <section id="promocao" className="py-16 lg:py-24 bg-gradient-primary relative overflow-hidden">
       <div className="absolute inset-0 bg-black/10"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground">
@@ -53,27 +50,32 @@ const RodeioPromotion = () => {
 
           {/* Countdown Timer */}
           <div className="grid grid-cols-4 gap-4 mb-8 max-w-md mx-auto">
-            {[
-              { label: "Dias", value: timeLeft.days },
-              { label: "Horas", value: timeLeft.hours },
-              { label: "Min", value: timeLeft.minutes },
-              { label: "Seg", value: timeLeft.seconds }
-            ].map((item, index) => (
-              <div key={index} className="bg-primary-foreground/20 backdrop-blur-sm rounded-lg p-4">
+            {[{
+            label: "Dias",
+            value: timeLeft.days
+          }, {
+            label: "Horas",
+            value: timeLeft.hours
+          }, {
+            label: "Min",
+            value: timeLeft.minutes
+          }, {
+            label: "Seg",
+            value: timeLeft.seconds
+          }].map((item, index) => <div key={index} className="bg-primary-foreground/20 backdrop-blur-sm rounded-lg p-4">
                 <Clock className="w-6 h-6 mx-auto mb-2" />
                 <div className="text-2xl font-bold">{item.value.toString().padStart(2, '0')}</div>
                 <div className="text-sm opacity-80">{item.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20">
               <CardContent className="p-6 text-center">
                 <Users className="w-8 h-8 mx-auto mb-3" />
-                <h3 className="text-xl font-semibold mb-3">Desconto Progressivo</h3>
+                <h3 className="text-xl font-semibold mb-3 text-slate-50">Desconto Progressivo</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>10-19 peças: <strong>10% OFF</strong></li>
+                  <li className="bg-transparent">10-19 peças: <strong>10% OFF</strong></li>
                   <li>20-49 peças: <strong>15% OFF</strong></li>
                   <li>50+ peças: <strong>20% OFF</strong></li>
                 </ul>
@@ -83,8 +85,8 @@ const RodeioPromotion = () => {
             <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20">
               <CardContent className="p-6 text-center">
                 <Gift className="w-8 h-8 mx-auto mb-3" />
-                <h3 className="text-xl font-semibold mb-3">Bordado Grátis</h3>
-                <p className="text-sm">
+                <h3 className="text-xl font-semibold mb-3 text-slate-50">Bordado Grátis</h3>
+                <p className="text-sm text-slate-50">
                   Para pedidos de <strong>15 peças ou mais</strong>, 
                   o bordado personalizado é por nossa conta!
                 </p>
@@ -115,8 +117,6 @@ const RodeioPromotion = () => {
       <div className="absolute bottom-4 right-4 opacity-10">
         <div className="w-12 h-12 border-2 border-primary-foreground rounded-lg rotate-45"></div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default RodeioPromotion;

@@ -1,19 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Scissors, Target, Award } from "lucide-react";
-
 const About = () => {
-  return (
-    <section id="sobre" className="py-16 lg:py-24 bg-accent/30">
+  return <section id="sobre" className="py-16 lg:py-24 bg-accent/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-foreground">
             Tradição e Qualidade Artesanal
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            No Ponto do Soft, cada peça é confeccionada com o cuidado e a dedicação que a tradição gaúcha merece. 
-            Há anos, especializamos-nos em criar blusas de soft personalizadas que combinam conforto, durabilidade 
-            e identidade para CTGs, grupos de laçadores, acampamentos e empresas.
-          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">No Ponto do Soft, cada peça é confeccionada com o cuidado e a dedicação que você merece. Há anos, especializamos-nos em criar blusas de soft personalizadas que combinam conforto, durabilidade e identidade para CTGs, grupos de laçadores, acampamentos e empresas.</p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -54,8 +48,6 @@ const About = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;

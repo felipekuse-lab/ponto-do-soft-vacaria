@@ -4,16 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
-
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically handle form submission
     alert("Formulário enviado! Entraremos em contato em breve.");
   };
-
-  return (
-    <section id="contato" className="py-16 lg:py-24 bg-background">
+  return <section id="contato" className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-foreground">
@@ -26,48 +23,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Contact Form */}
-          <Card className="bg-card border-border shadow-soft">
-            <CardHeader>
-              <CardTitle className="text-card-foreground">Formulário de Orçamento</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Label htmlFor="name">Nome completo</Label>
-                  <Input id="name" name="name" required className="mt-1" />
-                </div>
-                <div>
-                  <Label htmlFor="email">E-mail</Label>
-                  <Input id="email" name="email" type="email" required className="mt-1" />
-                </div>
-                <div>
-                  <Label htmlFor="phone">Telefone/WhatsApp</Label>
-                  <Input id="phone" name="phone" required className="mt-1" />
-                </div>
-                <div>
-                  <Label htmlFor="group">Nome do grupo/CTG/empresa</Label>
-                  <Input id="group" name="group" required className="mt-1" />
-                </div>
-                <div>
-                  <Label htmlFor="quantity">Quantidade de peças</Label>
-                  <Input id="quantity" name="quantity" type="number" required className="mt-1" />
-                </div>
-                <div>
-                  <Label htmlFor="message">Detalhes da personalização</Label>
-                  <Textarea 
-                    id="message" 
-                    name="message" 
-                    rows={4} 
-                    placeholder="Descreva como gostaria da personalização (bordado, cores, etc.)"
-                    className="mt-1"
-                  />
-                </div>
-                <Button type="submit" variant="primary" size="lg" className="w-full">
-                  Enviar Solicitação
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          
 
           {/* Contact Info */}
           <div className="space-y-6">
@@ -103,7 +59,7 @@ const Contact = () => {
                     <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3">
                       <Phone className="w-4 h-4 text-primary" />
                     </div>
-                    <span>(54) 9999-9999</span>
+                    <span>(54) 99905-8528</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3">
@@ -140,8 +96,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
