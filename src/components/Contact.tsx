@@ -7,8 +7,32 @@ import { MessageCircle, MapPin, Phone, Mail, Clock, Instagram } from "lucide-rea
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle form submission
-    alert("Formulário enviado! Entraremos em contato em breve.");
+    
+    // Captura os valores do formulário
+    const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get('name') as string;
+    const phone = formData.get('phone') as string;
+    const email = formData.get('email') as string;
+    const group = formData.get('group') as string;
+    const quantity = formData.get('quantity') as string;
+    const message = formData.get('message') as string;
+    
+    // Monta a mensagem para o WhatsApp
+    let whatsappMessage = `*SOLICITAÇÃO DE ORÇAMENTO*\n\n`;
+    whatsappMessage += `*Nome:* ${name}\n`;
+    whatsappMessage += `*Telefone:* ${phone}\n`;
+    whatsappMessage += `*E-mail:* ${email}\n`;
+    
+    if (group) whatsappMessage += `*Grupo/Empresa:* ${group}\n`;
+    if (quantity) whatsappMessage += `*Quantidade:* ${quantity}\n`;
+    if (message) whatsappMessage += `\n*Detalhes:*\n${message}`;
+    
+    // Codifica a mensagem para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Abre o WhatsApp com a mensagem
+    const whatsappUrl = `https://wa.me/5554999058528?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
   return <section id="contato" className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -32,29 +56,30 @@ const Contact = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name">Nome</Label>
-                    <Input id="name" placeholder="Seu nome" required />
+                    <Input id="name" name="name" placeholder="Seu nome" required />
                   </div>
                   <div>
                     <Label htmlFor="phone">Telefone</Label>
-                    <Input id="phone" placeholder="(00) 00000-0000" required />
+                    <Input id="phone" name="phone" placeholder="(00) 00000-0000" required />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="email">E-mail</Label>
-                  <Input id="email" type="email" placeholder="seu@email.com" required />
+                  <Input id="email" name="email" type="email" placeholder="seu@email.com" required />
                 </div>
                 <div>
                   <Label htmlFor="group">Grupo/Empresa</Label>
-                  <Input id="group" placeholder="Nome do seu grupo ou empresa" />
+                  <Input id="group" name="group" placeholder="Nome do seu grupo ou empresa" />
                 </div>
                 <div>
                   <Label htmlFor="quantity">Quantidade aproximada</Label>
-                  <Input id="quantity" placeholder="Ex: 20 peças" />
+                  <Input id="quantity" name="quantity" placeholder="Ex: 20 peças" />
                 </div>
                 <div>
                   <Label htmlFor="message">Detalhes do pedido</Label>
                   <Textarea 
                     id="message" 
+                    name="message"
                     placeholder="Descreva o que você precisa: modelo, cores, bordados, etc." 
                     rows={4}
                   />
@@ -81,7 +106,7 @@ const Contact = () => {
                   variant="hero" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.open('https://wa.me/5554999058528?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20Softs', '_blank')}
+                  onClick={() => window.open('https://wa.me/5554999058528?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20Softs', '_blank', 'noopener,noreferrer')}
                 >
                   Conversar no WhatsApp
                 </Button>
