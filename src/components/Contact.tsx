@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MessageCircle, MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +23,48 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Contact Form */}
-          
+          <Card className="bg-card border-border shadow-soft">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-card-foreground">Solicitar Orçamento</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Nome</Label>
+                    <Input id="name" placeholder="Seu nome" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone">Telefone</Label>
+                    <Input id="phone" placeholder="(00) 00000-0000" required />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="email">E-mail</Label>
+                  <Input id="email" type="email" placeholder="seu@email.com" required />
+                </div>
+                <div>
+                  <Label htmlFor="group">Grupo/Empresa</Label>
+                  <Input id="group" placeholder="Nome do seu grupo ou empresa" />
+                </div>
+                <div>
+                  <Label htmlFor="quantity">Quantidade aproximada</Label>
+                  <Input id="quantity" placeholder="Ex: 20 peças" />
+                </div>
+                <div>
+                  <Label htmlFor="message">Detalhes do pedido</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Descreva o que você precisa: modelo, cores, bordados, etc." 
+                    rows={4}
+                  />
+                </div>
+                <Button type="submit" className="w-full" size="lg">
+                  Enviar Solicitação
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
           {/* Contact Info */}
           <div className="space-y-6">
@@ -36,7 +77,12 @@ const Contact = () => {
                 <p className="mb-4">
                   Prefere conversar pelo WhatsApp? Clique no botão abaixo e fale conosco agora mesmo!
                 </p>
-                <Button variant="hero" size="lg" className="w-full">
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="w-full"
+                  onClick={() => window.open('https://wa.me/5554999058528?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20Softs', '_blank')}
+                >
                   Conversar no WhatsApp
                 </Button>
               </CardContent>
@@ -66,6 +112,12 @@ const Contact = () => {
                       <Mail className="w-4 h-4 text-primary" />
                     </div>
                     <span>contato@pontodosoft.com.br</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <Instagram className="w-4 h-4 text-primary" />
+                    </div>
+                    <span>@pontodosoft</span>
                   </div>
                 </div>
               </CardContent>

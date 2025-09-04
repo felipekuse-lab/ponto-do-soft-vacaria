@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, Instagram } from "lucide-react";
 const Footer = () => {
   return <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
@@ -16,7 +16,6 @@ const Footer = () => {
               <li><a href="#inicio" className="hover:opacity-100 transition-opacity">Início</a></li>
               <li><a href="#sobre" className="hover:opacity-100 transition-opacity">Sobre</a></li>
               <li><a href="#produtos" className="hover:opacity-100 transition-opacity">Produtos</a></li>
-              <li><a href="#promocao" className="hover:opacity-100 transition-opacity">Promoção</a></li>
               <li><a href="#contato" className="hover:opacity-100 transition-opacity">Contato</a></li>
             </ul>
           </div>
@@ -40,11 +39,15 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                (54) 9999-9999
+                (54) 99905-8528
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 contato@pontodosoft.com.br
+              </li>
+              <li className="flex items-center gap-2">
+                <Instagram className="w-4 h-4" />
+                @pontodosoft
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4" />
